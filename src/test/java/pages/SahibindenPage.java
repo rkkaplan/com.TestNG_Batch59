@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class SahibindenPage {
     public SahibindenPage() {
         PageFactory.initElements(Driver.getDriver(),this);
@@ -28,6 +30,6 @@ public class SahibindenPage {
     @FindBy(xpath = "//*[@title='Volvo']")
     public WebElement volvo;
 
-    @FindBy(xpath ="//div[@class='jspPane']")
-    public WebElement carCategory;
+    @FindBy(xpath ="//ul[@class='categoryList jspScrollable']//h2")
+    public List<WebElement> carCategory;
 }
