@@ -16,7 +16,6 @@ public class C03_PageClassKullanimi {
         //kullanici mail kutusuna rasgele bir isim yazdirin
         Faker faker = new Faker();
         facebookPage.userMail.sendKeys(faker.internet().emailAddress());
-
         //kulanici sifre kutusuna rasgele bir sifre yazdirin
         facebookPage.password.sendKeys(faker.internet().password());
         // login butonun basin

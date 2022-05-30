@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class PractiseSahibindenAuto {
+public class PracticeSahibindenAuto {
     @Test
     public void test01() throws InterruptedException {
         SahibindenPage sahibindenPage = new SahibindenPage();
@@ -43,9 +43,6 @@ public class PractiseSahibindenAuto {
 
         String expectedWord = "Honda";
         Assert.assertTrue(carCategories.contains(expectedWord), "doesn't contain");
-
-
-
 
     }
 }
