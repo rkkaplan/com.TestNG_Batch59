@@ -2,7 +2,7 @@ package tests.day17_pom;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HotelMyCamp;
+import pages.HotelMyCampPage;
 import utilities.Driver;
 
 public class Practice_HotelMyCamp {
@@ -12,7 +12,7 @@ public class Practice_HotelMyCamp {
     @Test
     public void positiveLoginTest() {
 
-        HotelMyCamp hotelMyCamp = new HotelMyCamp();
+        HotelMyCampPage hotelMyCamp = new HotelMyCampPage();
 
         // https://www.hotelmycamp.com/   adresine git
         Driver.getDriver().get("https://www.hotelmycamp.com/");
