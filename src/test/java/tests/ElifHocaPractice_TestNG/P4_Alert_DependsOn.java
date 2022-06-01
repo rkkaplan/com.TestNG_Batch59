@@ -55,6 +55,17 @@ public class P4_Alert_DependsOn {
 // 8. alert1'e göre dependsOnMethods kullanın
 
         Driver.closeDriver();
+
+        /*
+    Alert alert = driver.switchTo().alert(); //bu sekilde de kullanimi mevcuttur
+    driver.switchTo().alert();    yerine   Alert data turundeki alert variable ini kullandik.
+    alert variable ile methodlara ulasilabilir
+    alert.dismiss();
+    alert.accept(); vb
+     alert.getText();
+    bu kullanim sayesinde switchto() yazmamiza gerek kalmaz
+     */
+
     }
 }
 /*

@@ -17,7 +17,26 @@ public class Driver {
     pom'da Driver icin TestBase Classina extend etmek yerine driver classindan
     static methodlar kullanarak driver olusturup, ilgili ayarlarin yapilmasi  ve en sonda
     driver'in kapatilmasi tercih edilmistir
+
+    POM'de Driver Class'indaki getDriver() 'nin obje olusturularak kullanilmasini engellemek icin
+    Singleton Pattern kullanimi benimsenmistir.
+
+
+    Singleton Pattern: tekli kullanim, bir classin farkli classlardan  obje olusturularak kullanimini
+    engellemek icin kullanilir
+
+    Bunu saglamak icin yapmamiz gereken sey oldukca basittir
+    Obje olusturmak icin kullanilan constructor i private yaptigimiz zaman baska class'lardan
+    driver classindan obje olusturulmasi mumkun olamaz
+
+
+
+
      */
+
+    private Driver(){
+
+    }
 
     static WebDriver driver;
 
