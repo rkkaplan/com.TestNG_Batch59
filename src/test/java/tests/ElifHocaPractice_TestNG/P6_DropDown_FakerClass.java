@@ -1,10 +1,15 @@
 package tests.ElifHocaPractice_TestNG;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.TwitterPage;
 import utilities.Driver;
+
+import java.util.List;
 
 public class P6_DropDown_FakerClass {
     @Test
@@ -18,15 +23,23 @@ public class P6_DropDown_FakerClass {
         Faker faker = new Faker();
         twitter.useEMail.click();
         Thread.sleep(2000);
+
         twitter.nameInput.sendKeys(faker.name().firstName() + Keys.TAB +
-                faker.internet().safeEmailAddress() + Keys.TAB + Keys.TAB +
-                "Haziran" + Keys.TAB + "5" + Keys.TAB + "1982" );
+                faker.internet().safeEmailAddress());
+        Select select1 = new Select(twitter.ddmMonth);
+        Select select2 = new Select(twitter.ddmDay);
+        Select select3 = new Select(twitter.ddmYear);
+        select1.selectByIndex(faker.number().numberBetween(1,13));
+        select2.selectByIndex(faker.number().numberBetween(1,29));
+        select3.selectByIndex(faker.number().numberBetween(1,120));
+
         Thread.sleep(2000);
         twitter.forwardButton.click();
         Thread.sleep(2000);
         twitter.forwardButton.click();
         Thread.sleep(2000);
         twitter.enrollButton.click();
+
     }
 }
 /*

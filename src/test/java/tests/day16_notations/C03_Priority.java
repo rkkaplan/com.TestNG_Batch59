@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -41,7 +41,7 @@ default olarak priority=0 olarak kabul edilir
 
 
     }
-    @Test
+    @Test (groups = "grup1")
     public void test03() {
         driver.get("https://www.techproeducation.com");
         System.out.println(driver.getCurrentUrl());

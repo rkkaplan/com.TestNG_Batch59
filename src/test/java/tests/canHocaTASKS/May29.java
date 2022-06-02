@@ -1,5 +1,6 @@
 package tests.canHocaTASKS;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.ReactShoppingPage;
@@ -14,7 +15,7 @@ public class May29 {
 
 
     @Test
-    public void test01() {
+    public void test01() throws InterruptedException {
         // 1."https://react-shopping-cart-67954.firebaseapp.com/" adresine gidin
         Driver.getDriver().get(ConfigReader.getProperty("reactUrl"));
         // 2.Web sitesindeki tüm öğeleri listeleyin ve yazdirin
@@ -36,25 +37,38 @@ public class May29 {
         }
 
 // 4.Siteden Rastgele 5 öğe seçin, sepete ekleyin ve sectiginiz öğelerin adlarını yazdırın
-        Random rnd = new Random();
-        for (int i = 0; i <5 ; i++) {
-            reactShopping.allAddToCart.get(rnd.nextInt(16)).click();
-            System.out.println("*****************************     List of Selected Products:    ***********************");
-            System.out.println((i+1) + ": " + reactShopping.listOfCart.get(i).getText());
 
-        }
+        List<Integer> selectedIndexList = new ArrayList<>();
+      for (int i = 0 ; i<5; i++){
+          Faker faker = new Faker();
+          int randomIndex = faker.random().nextInt(allList.size());
+          if (!selectedIndexList.contains(randomIndex)){
+              selectedIndexList.add(randomIndex);
+              reactShopping.allAddToCartButtonsList.get(randomIndex).click(); // 5 oge sectik ve sepete ekledik
+              Thread.sleep(1000);
+              reactShopping.quitFromAddToCartListButton.click();//burada x buttonuna click yapacagiz
+              Thread.sleep(1000);
+          } else {
+              i--; //
+          }
+        }//FOR
+        reactShopping.openCartButton.click(); //sepettekiler listesinin yazdirilabilmesi icin 'acilir pencere' acik hale getirildi
 
+        System.out.println("List of Cart: ");
 
-
-
-
+        for (int i = 0; i <reactShopping.listOfCart.size() ; i++) {
+            System.out.println( (i+1) + ": " + reactShopping.listOfCart.get(i).getText());
+        };
 
 
 // (Her ürün 1 defadan fazla eklenemez!)
 // 5.Her bir öğenin fiyatını toplayın ve sonucunuzu web sitesiyle karşılaştırın
+
+
+
 // 6.Sonuçlar eşleşiyorsa  konsola test pass yazirin
 // 7.Checkout'a tıklayın
-    }
+    }//TEST
 
 
 }

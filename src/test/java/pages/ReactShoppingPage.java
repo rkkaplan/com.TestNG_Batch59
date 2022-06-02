@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,12 +12,18 @@ public class ReactShoppingPage {
     public ReactShoppingPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy (xpath = "//div[@class='sc-uhudcz-0 iZZGui']//div[@tabindex=1]//p[@class='sc-124al1g-4 eeXMBo']")
+    @FindBy (xpath = "//p[@class='sc-124al1g-4 eeXMBo']")
     public List<WebElement> allElements;
 
-    @FindBy (xpath = "//div[@class='sc-uhudcz-0 iZZGui']//div[@tabindex=1]//button[@class='sc-124al1g-0 jCsgpZ']")
-     public List<WebElement> allAddToCart;
+    @FindBy (xpath = "//button[@class='sc-124al1g-0 jCsgpZ']")
+     public List<WebElement> allAddToCartButtonsList;
 
-    @FindBy (xpath = "//div[@class='sc-11uohgb-0 hDmOrM']//p[@class='sc-11uohgb-2 elbkhN']")
+    @FindBy (xpath = "//p[@class='sc-11uohgb-2 elbkhN']")
     public List<WebElement> listOfCart;
+
+    @FindBy (xpath = "//button[@class='sc-1h98xa9-0 gFkyvN']")
+    public WebElement quitFromAddToCartListButton;
+
+    @FindBy (xpath = "//div[@class='sc-1h98xa9-2 fGgnoG']")
+    public WebElement openCartButton;
 }

@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.By;
