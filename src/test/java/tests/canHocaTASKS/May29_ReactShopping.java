@@ -2,16 +2,17 @@ package tests.canHocaTASKS;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ReactShoppingPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class May29 {
+public class May29_ReactShopping {
 
 
     @Test
@@ -41,39 +42,53 @@ public class May29 {
 
 
         List<Integer> selectedIndexList = new ArrayList<>();
-        double totalPrice = 0;
+        double totalPriceFromPage = 0;
+
+
+        Faker faker = new Faker();
+
 
       for (int i = 0 ; i<5; i++){
-          Faker faker = new Faker();
+
           int randomIndex = faker.random().nextInt(allList.size());
           if (!selectedIndexList.contains(randomIndex)){
               selectedIndexList.add(randomIndex);
               reactShopping.allAddToCartButtonsList.get(randomIndex).click(); // 5 oge sectik ve sepete ekledik
               Thread.sleep(1000);
-              totalPrice+= Double.parseDouble(reactShopping.pricesOfPages.get(randomIndex).getText().substring(1));
-              System.out.println(totalPrice);
+              totalPriceFromPage+= Double.parseDouble(reactShopping.pricesOfPages.get(randomIndex).getText().substring(1));
+
               reactShopping.quitFromAddToCartListButton.click();//burada x buttonuna click yapacagiz
               Thread.sleep(1000);
           } else {
               i--; //
           }
         }//FOR
+        System.out.println("totalPrice = " + totalPriceFromPage);
         reactShopping.openCartButton.click(); //sepettekiler listesinin yazdirilabilmesi icin 'acilir pencere' acik hale getirildi
 
         System.out.println("List of Cart: ");
 
         for (int i = 0; i <reactShopping.listOfCart.size() ; i++) {
             System.out.println( (i+1) + ": " + reactShopping.listOfCart.get(i).getText());
-        };
 
+        };
 
 // 5.Her bir öğenin fiyatını toplayın ve sonucunuzu web sitesiyle karşılaştırın
 
+        double totalPriceFromCart = Double.parseDouble(reactShopping.totalPriceFromCart.getText().substring(2));
+
+        Assert.assertEquals(totalPriceFromCart,totalPriceFromPage);
 
 
 
-// 6.Sonuçlar eşleşiyorsa  konsola test pass yazirin
-// 7.Checkout'a tıklayın
+
+
+
+
+
+// 6.Checkout'a tıklayın
+        reactShopping.checkOutButton.click();
+        Driver.closeDriver();
     }//TEST
 
 

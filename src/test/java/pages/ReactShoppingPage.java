@@ -34,6 +34,10 @@ public class ReactShoppingPage {
     @FindBy (xpath = "//p[@class='sc-124al1g-6 ljgnQL']")
     public List<WebElement> pricesOfPages;
 
-    //
-    //
+    @FindBy (xpath = "//p[@class='sc-1h98xa9-9 jzywDV']")
+    public WebElement totalPriceFromCart;
+
+    @FindBy (xpath = "//*[text()='Checkout']")
+    public WebElement checkOutButton;
+
 }
