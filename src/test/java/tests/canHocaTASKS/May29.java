@@ -37,8 +37,12 @@ public class May29 {
         }
 
 // 4.Siteden Rastgele 5 öğe seçin, sepete ekleyin ve sectiginiz öğelerin adlarını yazdırın
+// (Her ürün 1 defadan fazla eklenemez!)
+
 
         List<Integer> selectedIndexList = new ArrayList<>();
+        double totalPrice = 0;
+
       for (int i = 0 ; i<5; i++){
           Faker faker = new Faker();
           int randomIndex = faker.random().nextInt(allList.size());
@@ -46,6 +50,8 @@ public class May29 {
               selectedIndexList.add(randomIndex);
               reactShopping.allAddToCartButtonsList.get(randomIndex).click(); // 5 oge sectik ve sepete ekledik
               Thread.sleep(1000);
+              totalPrice+= Double.parseDouble(reactShopping.pricesOfPages.get(randomIndex).getText().substring(1));
+              System.out.println(totalPrice);
               reactShopping.quitFromAddToCartListButton.click();//burada x buttonuna click yapacagiz
               Thread.sleep(1000);
           } else {
@@ -61,8 +67,8 @@ public class May29 {
         };
 
 
-// (Her ürün 1 defadan fazla eklenemez!)
 // 5.Her bir öğenin fiyatını toplayın ve sonucunuzu web sitesiyle karşılaştırın
+
 
 
 

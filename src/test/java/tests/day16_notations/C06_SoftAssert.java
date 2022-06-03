@@ -22,7 +22,7 @@ bitis satirina geldiginde bize buldugu tum hatalari rapor eder
         //1- amazon anasayfaya git
         driver.get("https://www.amazon.com");
         //2- title'in amazon icerdigini test edin
-        String expectedTitle = "amazon";
+        String expectedTitle = "Amazon";
         String actualTitle = driver.getTitle();
         softAssert.assertTrue(actualTitle.contains(expectedTitle), "title amazon icermiyor");
         //3- arama kutusunun erisilebilir oldugunu test edin
@@ -34,7 +34,7 @@ bitis satirina geldiginde bize buldugu tum hatalari rapor eder
         WebElement sonucYaziElementi = driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         softAssert.assertTrue(sonucYaziElementi.isDisplayed(),"arama yapilamadi");
         //6- arama sonucunun nutella icerdigini test edin
-        softAssert.assertTrue(sonucYaziElementi.getText().contains("Kutella"), "sonuc yazisi kutella icermiyor");
+        softAssert.assertTrue(sonucYaziElementi.getText().contains("Nutella"), "sonuc yazisi Nutella icermiyor");
 
         //softAssert e bitis satirini soylemek icin assertAll() kullanilir
         //verification denirse------- softassert objesi-------denmezse Assert

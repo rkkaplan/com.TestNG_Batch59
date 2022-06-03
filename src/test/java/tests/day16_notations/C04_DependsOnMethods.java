@@ -31,7 +31,7 @@ public class C04_DependsOnMethods  {
     @Test
     public void test01(){
         // amazon anasayfaya gidelim
-        driver.get("https://www.ramazon5.com");
+        driver.get("https://www.amazon.com");
     }
     @Test (dependsOnMethods = "test01")
     public void test02(){

@@ -12,6 +12,7 @@ public class ReactShoppingPage {
     public ReactShoppingPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
     @FindBy (xpath = "//p[@class='sc-124al1g-4 eeXMBo']")
     public List<WebElement> allElements;
 
@@ -26,4 +27,13 @@ public class ReactShoppingPage {
 
     @FindBy (xpath = "//div[@class='sc-1h98xa9-2 fGgnoG']")
     public WebElement openCartButton;
+
+    @FindBy (xpath = "//div[@class='sc-11uohgb-4 bnZqjD']")
+    public List<WebElement> pricesOfCart;
+
+    @FindBy (xpath = "//p[@class='sc-124al1g-6 ljgnQL']")
+    public List<WebElement> pricesOfPages;
+
+    //
+    //
 }
