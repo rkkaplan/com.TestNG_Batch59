@@ -1,4 +1,4 @@
-package tests.ElifHocaPractice_TestNG;
+package tests.ElifHocaPractice_TestNG.day03;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;

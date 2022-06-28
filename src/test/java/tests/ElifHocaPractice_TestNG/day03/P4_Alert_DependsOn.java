@@ -1,4 +1,4 @@
-package tests.ElifHocaPractice_TestNG;
+package tests.ElifHocaPractice_TestNG.day03;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

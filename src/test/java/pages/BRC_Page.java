@@ -1,9 +1,12 @@
 package pages;
 
+import org.checkerframework.framework.qual.QualifierForLiterals;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 public class BRC_Page {
     public BRC_Page() {
@@ -24,4 +27,13 @@ public class BRC_Page {
 
     @FindBy (id = "dropdown-basic-button")
     public WebElement userProfileName;
+
+    @FindBy (xpath = "(//button[@class='btn btn-primary'])[2]")
+    public WebElement buttonUpVehicles;
+
+    @FindBy (xpath = "(//button[@class='btn btn-primary'])[3]")
+    public WebElement buttonDownVehicles;
+
+    @FindBy(css = "ul.vehicleList>li[class]")
+    public List<WebElement> carBrandsList;
 }
